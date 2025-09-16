@@ -27,13 +27,14 @@ impl RpcLedgerClient {
 
     pub async fn send_payment(
         &self,
+        method: String,
         payment: &PaymentParams,
     ) -> Result<PaymentResponse, Box<dyn std::error::Error>> {
         let params = SignAndSubmitTransaction {
             tx_json: payment.clone(),
         };
 
-        let result: PaymentResponse = self.call("simulate".to_string(), params).await?;
+        let result: PaymentResponse = self.call(method, params).await?;
         Ok(result)
     }
 

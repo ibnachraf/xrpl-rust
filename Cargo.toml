@@ -3,6 +3,9 @@ name = "xrpl"
 version = "0.1.0"
 edition = "2024"
 
+[lib]
+name = "xrpl"
+
 [dependencies]
 tokio = { version = "1.47.1", features = ["full"] }
 serde = "1.0.219"
